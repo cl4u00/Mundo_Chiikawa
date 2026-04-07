@@ -1,21 +1,25 @@
 /* =========================================
-   1. VARIABLES DE COLOR Y TIPOGRAFÍA
+   1. VARIABLES Y TIPOGRAFÍA TIERNA
    ========================================= */
+/* Importamos Quicksand: una tipografía de bordes muy redondos y adorables */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
 :root {
-  --azul-hachiware: #A3D5FF;      /* Azul principal de fondo */
-  --azul-circulo-claro: #C2E4FF;  /* Círculos pastel claros */
-  --azul-circulo-oscuro: #85C2F2; /* Círculos pastel oscuros */
-  --blanco-tarjeta: rgba(255, 255, 255, 0.85);
-  --color-texto: #3B4A5A;
+  --fondo-blanco: #ffffff;
+  --celeste-muy-claro: #F0F9FF;
+  --celeste-claro: #E0F2FE;
+  --celeste-medio: #BAE6FD;
+  --azul-texto: #0284C7;
+  --texto-oscuro: #334155;
 }
 
 body {
-  font-family: 'Fredoka', sans-serif;
-  background-color: var(--azul-hachiware);
-  color: var(--color-texto);
+  font-family: 'Quicksand', sans-serif;
+  background-color: var(--fondo-blanco);
+  color: var(--texto-oscuro);
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Evita scroll horizontal por los círculos */
+  overflow-x: hidden;
   position: relative;
 }
 
@@ -25,189 +29,183 @@ body {
 .circulo-fondo {
   position: fixed;
   border-radius: 50%;
-  z-index: -2; /* Detrás del contenido principal */
+  z-index: -1;
 }
 
+/* 4 Círculos de diferentes tamaños */
 .circulo-1 {
-  width: 400px;
-  height: 400px;
-  background-color: var(--azul-circulo-claro);
-  top: -50px;
-  left: -100px;
+  width: 450px;
+  height: 450px;
+  background-color: var(--celeste-claro);
+  top: -100px;
+  left: -150px;
 }
 
 .circulo-2 {
-  width: 300px;
-  height: 300px;
-  background-color: var(--azul-circulo-oscuro);
-  bottom: 100px;
-  right: -50px;
+  width: 350px;
+  height: 350px;
+  background-color: var(--celeste-medio);
+  bottom: -80px;
+  right: -100px;
 }
 
 .circulo-3 {
   width: 250px;
   height: 250px;
-  background-color: var(--azul-circulo-claro);
+  background-color: var(--celeste-muy-claro);
   top: 40%;
-  left: 80%;
+  right: -120px;
 }
 
 .circulo-4 {
   width: 150px;
   height: 150px;
-  background-color: var(--azul-circulo-oscuro);
-  top: 70%;
-  left: 10%;
+  background-color: var(--celeste-medio);
+  top: 60%;
+  left: 5%;
 }
 
 /* =========================================
    3. ANIMACIÓN DE HACHIWARE
    ========================================= */
 .hachiware-escondido {
-  width: 150px;
   position: absolute;
-  top: 20px;
+  width: 130px;
+  top: 30px; /* Escondido dentro del círculo */
   left: 50%;
-  transform: translateX(-50%) rotate(0deg) scale(0.9);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateX(-50%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Animación principal: Hachiware salta hacia arriba */
+/* Al pasar el mouse, Hachiware se asoma hacia arriba y se balancea un poco */
 .circulo-fondo:hover .hachiware-escondido {
-  top: -90px; 
-  transform: translateX(-50%) rotate(-5deg) scale(1.1);
+  transform: translate(-50%, -70px) rotate(8deg);
 }
 
-/* Ajuste para el círculo 2 (abajo a la derecha) para que salte hacia un lado */
+/* Ajuste específico para que el Hachiware del círculo inferior derecho se asome correctamente */
 .circulo-2 .hachiware-escondido {
-  top: auto;
-  bottom: 20px;
+  top: 10px;
 }
-
 .circulo-2:hover .hachiware-escondido {
-  bottom: auto;
-  top: -60px;
-  transform: translateX(-60%) rotate(8deg) scale(1.15);
+  transform: translate(-60%, -50px) rotate(-10deg);
 }
 
 /* =========================================
-   4. ESTRUCTURA PRINCIPAL Y TARJETAS
+   4. ESTRUCTURA PRINCIPAL
    ========================================= */
-.contenedor-principal {
+main, header, footer {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1; /* Para que el texto quede por encima de los círculos */
 }
 
 header h1 {
   text-align: center;
   font-size: 3.5rem;
-  color: #fff;
-  text-shadow: 4px 4px 0px #85C2F2; /* Efecto de letras gorditas */
-  margin-bottom: 40px;
-  letter-spacing: 1px;
+  color: var(--azul-texto);
+  margin-bottom: 20px;
+  margin-top: 40px;
 }
 
-.titulo-seccion {
-  color: #fff;
-  text-shadow: 2px 2px 0px #85C2F2;
+h2 {
+  color: var(--azul-texto);
   font-size: 2.2rem;
-  margin-top: 50px;
-}
-
-.tarjeta-blanca {
-  background-color: var(--blanco-tarjeta);
-  padding: 30px;
-  border-radius: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  border-bottom: 4px dotted var(--celeste-medio);
+  padding-bottom: 10px;
+  margin-top: 40px;
 }
 
 /* =========================================
-   5. DISEÑO DE LAS RECETAS (FLEXBOX)
+   5. DISEÑO DE RECETAS (FLEXBOX)
    ========================================= */
-.tarjeta-receta {
+article {
   display: flex;
-  background-color: var(--blanco-tarjeta);
+  flex-direction: row; /* Imagen a la izquierda por defecto */
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
   padding: 30px;
-  border-radius: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  border-radius: 35px; /* Bordes muy redondeados */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   margin-bottom: 40px;
-  gap: 30px; 
-  align-items: flex-start;
+  align-items: flex-start; /* Mantiene la imagen en la parte superior */
 }
 
-/* Invertir el orden para las recetas pares */
-article:nth-of-type(even).tarjeta-receta {
-  flex-direction: row-reverse;
+/* Para alternar la posición de la imagen de forma automática (izquierda/derecha) */
+article:nth-of-type(even) {
+  flex-direction: row-reverse; /* Imagen a la derecha en recetas pares */
 }
 
-/* Estilo para las imágenes de comida */
-.imagen-receta {
+/* Imagen cuadrada y con bordes redondeados */
+article img {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  border-radius: 30px;
-  flex-shrink: 0; 
-  border: 4px solid #fff; /* Un marquito blanco adorable */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-radius: 35px;
+  flex-shrink: 0;
+  border: 5px solid var(--celeste-claro);
 }
 
-.contenido-receta {
+aside {
   flex-grow: 1;
 }
 
-.contenido-receta h3 {
+aside h3 {
+  font-size: 1.8rem;
+  color: var(--azul-texto);
   margin-top: 0;
-  font-size: 2.2rem;
-  color: #5C8DB8;
 }
 
-.contenido-receta h4 {
-  font-size: 1.3rem;
-  color: #3B4A5A;
-  margin-bottom: 10px;
+aside h4 {
+  font-size: 1.4rem;
+  color: var(--texto-oscuro);
+  margin-bottom: 15px;
 }
 
 /* =========================================
-   6. LISTAS Y ESTRELLAS
+   6. LISTAS Y ESTRELLA DE PUNTAS REDONDAS
    ========================================= */
-.lista-ingredientes {
-  list-style: none; 
+ul {
+  list-style: none;
   padding-left: 0;
 }
 
-.lista-ingredientes li {
-  margin-bottom: 8px;
+ul li {
   position: relative;
-  padding-left: 30px;
+  padding-left: 35px;
+  margin-bottom: 10px;
   font-size: 1.1rem;
+  line-height: 1.5;
 }
 
-/* Estrella como viñeta */
-.lista-ingredientes li::before {
-  content: "⭐";
+/* Creación de la estrella de puntas redondas utilizando un vector (SVG) */
+ul li::before {
+  content: "";
   position: absolute;
   left: 0;
-  top: -2px;
-  font-size: 1.2rem;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338BDF8'%3E%3Cpath d='M12 2.3l2.4 6.7c.2.6.7 1 1.3 1h6.6c1.1 0 1.5 1.4.6 2.1l-5.3 4.2c-.5.4-.7 1-.5 1.6l2 6.5c.3 1.1-1 2-1.9 1.4l-5.4-4.3c-.5-.4-1.2-.4-1.7 0l-5.4 4.3c-.9.6-2.2-.3-1.9-1.4l2-6.5c.2-.6 0-1.2-.5-1.6l-5.3-4.2c-.9-.7-.5-2.1.6-2.1h6.6c.6 0 1.1-.4 1.3-1l2.4-6.7c.3-1 1.7-1 2 0z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.lista-preparacion {
+ol {
   padding-left: 20px;
 }
 
-.lista-preparacion li {
+ol li {
   margin-bottom: 15px;
-  line-height: 1.6;
   font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 footer {
   text-align: center;
   padding: 30px;
-  font-weight: 600;
-  color: #fff;
+  color: var(--azul-texto);
+  font-weight: bold;
   font-size: 1.2rem;
 }
