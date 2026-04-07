@@ -1,0 +1,213 @@
+/* =========================================
+   1. VARIABLES DE COLOR Y TIPOGRAFÍA
+   ========================================= */
+:root {
+  --azul-hachiware: #A3D5FF;      /* Azul principal de fondo */
+  --azul-circulo-claro: #C2E4FF;  /* Círculos pastel claros */
+  --azul-circulo-oscuro: #85C2F2; /* Círculos pastel oscuros */
+  --blanco-tarjeta: rgba(255, 255, 255, 0.85);
+  --color-texto: #3B4A5A;
+}
+
+body {
+  font-family: 'Fredoka', sans-serif;
+  background-color: var(--azul-hachiware);
+  color: var(--color-texto);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Evita scroll horizontal por los círculos */
+  position: relative;
+}
+
+/* =========================================
+   2. CÍRCULOS DE FONDO
+   ========================================= */
+.circulo-fondo {
+  position: fixed;
+  border-radius: 50%;
+  z-index: -2; /* Detrás del contenido principal */
+}
+
+.circulo-1 {
+  width: 400px;
+  height: 400px;
+  background-color: var(--azul-circulo-claro);
+  top: -50px;
+  left: -100px;
+}
+
+.circulo-2 {
+  width: 300px;
+  height: 300px;
+  background-color: var(--azul-circulo-oscuro);
+  bottom: 100px;
+  right: -50px;
+}
+
+.circulo-3 {
+  width: 250px;
+  height: 250px;
+  background-color: var(--azul-circulo-claro);
+  top: 40%;
+  left: 80%;
+}
+
+.circulo-4 {
+  width: 150px;
+  height: 150px;
+  background-color: var(--azul-circulo-oscuro);
+  top: 70%;
+  left: 10%;
+}
+
+/* =========================================
+   3. ANIMACIÓN DE HACHIWARE
+   ========================================= */
+.hachiware-escondido {
+  width: 150px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) rotate(0deg) scale(0.9);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Animación principal: Hachiware salta hacia arriba */
+.circulo-fondo:hover .hachiware-escondido {
+  top: -90px; 
+  transform: translateX(-50%) rotate(-5deg) scale(1.1);
+}
+
+/* Ajuste para el círculo 2 (abajo a la derecha) para que salte hacia un lado */
+.circulo-2 .hachiware-escondido {
+  top: auto;
+  bottom: 20px;
+}
+
+.circulo-2:hover .hachiware-escondido {
+  bottom: auto;
+  top: -60px;
+  transform: translateX(-60%) rotate(8deg) scale(1.15);
+}
+
+/* =========================================
+   4. ESTRUCTURA PRINCIPAL Y TARJETAS
+   ========================================= */
+.contenedor-principal {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+header h1 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 4px 4px 0px #85C2F2; /* Efecto de letras gorditas */
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.titulo-seccion {
+  color: #fff;
+  text-shadow: 2px 2px 0px #85C2F2;
+  font-size: 2.2rem;
+  margin-top: 50px;
+}
+
+.tarjeta-blanca {
+  background-color: var(--blanco-tarjeta);
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* =========================================
+   5. DISEÑO DE LAS RECETAS (FLEXBOX)
+   ========================================= */
+.tarjeta-receta {
+  display: flex;
+  background-color: var(--blanco-tarjeta);
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+  gap: 30px; 
+  align-items: flex-start;
+}
+
+/* Invertir el orden para las recetas pares */
+article:nth-of-type(even).tarjeta-receta {
+  flex-direction: row-reverse;
+}
+
+/* Estilo para las imágenes de comida */
+.imagen-receta {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 30px;
+  flex-shrink: 0; 
+  border: 4px solid #fff; /* Un marquito blanco adorable */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contenido-receta {
+  flex-grow: 1;
+}
+
+.contenido-receta h3 {
+  margin-top: 0;
+  font-size: 2.2rem;
+  color: #5C8DB8;
+}
+
+.contenido-receta h4 {
+  font-size: 1.3rem;
+  color: #3B4A5A;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   6. LISTAS Y ESTRELLAS
+   ========================================= */
+.lista-ingredientes {
+  list-style: none; 
+  padding-left: 0;
+}
+
+.lista-ingredientes li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 30px;
+  font-size: 1.1rem;
+}
+
+/* Estrella como viñeta */
+.lista-ingredientes li::before {
+  content: "⭐";
+  position: absolute;
+  left: 0;
+  top: -2px;
+  font-size: 1.2rem;
+}
+
+.lista-preparacion {
+  padding-left: 20px;
+}
+
+.lista-preparacion li {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.2rem;
+}
