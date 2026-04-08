@@ -10,6 +10,10 @@
   --texto-oscuro: #334155;
 }
 
+html {
+  scroll-behavior: smooth; /* Esto hace la magia de deslizarse suavemente */
+} 
+
 body {
   font-family: 'Quicksand', sans-serif;
   background-color: var(--fondo-azul);
@@ -116,20 +120,35 @@ h2 {
    5. DISEÑO DE RECETAS (FLEXBOX)
    ========================================= */
 article {
-  display: flex;
-  flex-direction: row; /* Imagen a la izquierda por defecto */
-  gap: 30px;
-  background-color: rgba(255, 255, 255, 0.39);
+  /* Quitamos el flex de aquí para que el título se quede arriba */
+  background-color: rgba(255, 255, 255, 0.301);
   padding: 30px;
-  border-radius: 35px; /* Bordes muy redondeados */
-  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 35px; 
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   margin-bottom: 40px;
-  align-items: flex-start; /* Mantiene la imagen en la parte superior */
 }
 
-/* Para alternar la posición de la imagen de forma automática (izquierda/derecha) */
-article:nth-of-type(even) {
-  flex-direction: row-reverse; /* Imagen a la derecha en recetas pares */
+/* Le damos estilo al título para que destaque arriba */
+article h3 {
+  font-size: 2.2rem;
+  color: var(--azul-texto);
+  margin-top: 0;
+  margin-bottom: 25px; /* Espacio entre el título y la comida */
+  text-align: center; /* Lo centramos para que se vea más ordenado */
+  width: 100%;
+}
+
+/* El nuevo contenedor que pone la imagen y el texto lado a lado */
+.cuerpo-receta {
+  display: flex;
+  flex-direction: row; 
+  gap: 30px;
+  align-items: flex-start; 
+}
+
+/* Magia para alternar la posición de la imagen de forma automática */
+article:nth-of-type(even) .cuerpo-receta {
+  flex-direction: row-reverse; 
 }
 
 /* Imagen cuadrada y con bordes redondeados */
@@ -204,4 +223,69 @@ footer {
   color: var(--azul-texto);
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+/* =========================================
+   7. SECCIÓN DE PREPARACIÓN
+   ========================================= */
+.preparacion-receta {
+  margin-top: 30px; /* Separación con la parte de arriba */
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+/* Le damos un estilo lindo al subtítulo de Preparación */
+.preparacion-receta h4 {
+  font-size: 1.5rem;
+  color: var(--azul-texto);
+  margin-bottom: 15px;
+  border-bottom: 2px dashed var(--celeste-medio); /* Una línea punteada tierna */
+  padding-bottom: 10px;
+}
+
+/* =========================================
+   8. MENÚ DE NAVEGACIÓN PRINCIPAL
+   ========================================= */
+.menu-principal {
+  background-color: rgba(255, 255, 255, 0.85); /* Fondo blanquito translúcido */
+  border: 3px solid var(--celeste-medio);
+  border-radius: 30px;
+  padding: 10px 30px;
+  display: inline-block; /* Para que la cajita abrace el texto y no ocupe toda la pantalla */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Ponemos los botones uno al lado del otro */
+.menu-principal ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Separación entre cada botón */
+  margin: 0;
+  padding: 0;
+}
+
+/* Le quitamos tu estrella personalizada SOLO a esta lista para que parezcan botones */
+.menu-principal ul li {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.menu-principal ul li::before {
+  content: none; 
+  background-image: none;
+}
+
+/* Estilo de las letras del menú */
+.menu-principal a {
+  text-decoration: none; /* Quita la línea fea de los enlaces */
+  color: var(--azul-texto);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: all 0.3s ease; /* Para que cambie de color suavemente */
+}
+
+/* Efecto al pasar el mouse por encima */
+.menu-principal a:hover {
+  color: var(--texto-oscuro);
+  background-color: var(--celeste-claro);
+  padding: 5px 15px;
+  border-radius: 15px;
 }
