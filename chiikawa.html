@@ -9,22 +9,13 @@
 
 </head>
 <body>
-  <div class="circulo-fondo circulo-1">
-    <img src="images/hachiwarehelado.png" alt="Hachiware comiendo helado" class="hachiware-escondido">
-  </div>
+  <div class="burbuja burbuja-1"></div>
+  <div class="burbuja burbuja-2"></div>
+  <div class="burbuja burbuja-3"></div>
+  <div class="burbuja burbuja-4"></div>
+  <div class="burbuja burbuja-5"></div>
   
-  <div class="circulo-fondo circulo-2">
-    <img src="images/hachiwarefeliz.png" alt="Hachiware feliz" class="hachiware-escondido">
-  </div>
-  
-  <div class="circulo-fondo circulo-3">
-    <img src="images/hachiwarehelado.png" alt="Hachiware normal" class="hachiware-escondido">
-  </div>
-  
-  <div class="circulo-fondo circulo-4"></div>
-
-  
-  <header style="text-align: center;">
+  <header id="inicio" style="text-align: center;">
     <h1>Cocina con Hachiware</h1>
     
     <nav class="menu-principal">
@@ -32,6 +23,7 @@
         <li><a href="#introduccion">Historia</a></li>
         <li><a href="#recetas-saladas">Recetas Saladas</a></li>
         <li><a href="#postres">Postres</a></li>
+        <li><a href="#redes-footer">Redes Sociales</a></li>
       </ul>
     </nav>
   </header>
@@ -44,6 +36,8 @@
 
     <section aria-labelledby="recetas-saladas">
       <h2 id="recetas-saladas">Recetas saladas</h2>
+
+      <!------------------------------------------------------------------------------------------------------------------->
 
       <article>
         <h3>Pot-au-feu</h3>
@@ -263,9 +257,42 @@
 
   </main>
 
-  <footer>
-    <p>© Mundo Chiikawa</p>
+  <footer class="pie-pagina-oficial" id="redes-footer">
+    <img src="images/icon2.png" alt="Hachiware asomándose" class="hachiware-footer">
+
+    <div class="footer-columnas">
+      
+      <div class="columna-izq">
+        <h2 class="logo-footer">COCiNA CON HACHiWARE</h2>
+        <div class="redes-sociales">
+          <a href="#">📷 Instagram oficial</a>
+          <a href="#">📺 Canal de YouTube</a>
+          <a href="#">🎵 TikTok de recetas</a>
+        </div>
+      </div>
+
+      <div class="columna-cen">
+        <a href="#introduccion">Inicio</a>
+        <a href="#recetas-saladas">Recetas Saladas</a>
+        <a href="#postres">Postres</a>
+      </div>
+
+      <div class="columna-der">
+        <strong class="titulo-der">Mundo Chiikawa</strong>
+        <a href="#">Sobre el proyecto</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Privacidad</a>
+        <p class="creditos">Desarrollado por Kai ✨</p>
+      </div>
+
+    </div>
   </footer>
+
+  <a href="#inicio" class="boton-subir" title="Volver al inicio">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icono-flecha">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </a>
 
 </body>
 </html>
