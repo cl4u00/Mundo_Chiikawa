@@ -290,7 +290,7 @@ footer {
    9. PIE DE PÁGINA (ESTILO OFICIAL CHIIKAWA)
    ========================================= */
 .pie-pagina-oficial {
-  background-color: #4980f8; /* Un rosa pastel similar al oficial */
+  background-color: #4980f8; 
   padding: 60px 40px;
   margin-top: 80px;
   position: relative;
@@ -316,7 +316,7 @@ footer {
   font-size: 2rem;
   margin: 0 0 20px 0;
   color: #fff;
-  border-bottom: none; /* Quitamos la línea punteada de los h2 normales */
+  border-bottom: none; 
   padding-bottom: 0;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -363,16 +363,16 @@ footer {
   left: -20px;   /* Lo pegamos a la izquierda */
   width: 250px;
   z-index: 1;
-  transform: rotate(0 deg); /* Lo inclinamos un poco para que se vea más tierno */
+  transform: rotate(0 deg); /*esto es para rotar a hachiware*/
 }
 
 /* =========================================
    10. BOTÓN FLOTANTE "VOLVER ARRIBA"
    ========================================= */
 .boton-subir {
-  position: fixed; /* Lo deja pegado en la pantalla */
-  bottom: 30px;    /* Distancia desde abajo */
-  right: 30px;     /* Distancia desde la derecha */
+  position: fixed; /*lo deja pegado en la pantalla*/
+  bottom: 30px;    /*distancia desde abajo*/
+  right: 30px;     /*Distancia desde la derecha*/
   background-color: var(--celeste-claro);
   color: var(--azul-texto);
   text-decoration: none;
@@ -382,29 +382,29 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%; /* Lo hace un círculo perfecto */
+  border-radius: 50%; /*lo hace un círculo perfecto*/
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  z-index: 100; /* Asegura que siempre esté por encima de las recetas y el footer */
+  z-index: 100; /*asegura que siempre esté por encima de las recetas y el footer */
   transition: all 0.3s ease;
 }
 
-/* Efecto tierno al pasar el mouse */
+/*efecto tierno al pasar el mouse*/
 .boton-subir:hover {
   background-color: var(--celeste-medio);
-  transform: translateY(-5px); /* Salta un poquito hacia arriba */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Aumenta la sombra */
+  transform: translateY(-5px); /*salta un poquito hacia arriba*/
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /*aumenta la sombra*/
 }
 
-/* Estilo específico para la nueva flecha redondeada */
+/*estilo específico para la flecha*/
 .icono-flecha {
-  width: 28px;  /* Tamaño del icono dentro del círculo */
+  width: 28px;  /*tamaño del icono dentro del circulo*/
   height: 28px;
-  /* 'currentColor' hace que la flecha use el color definido en .boton-subir */
+  /*'currentColor' hace que la flecha use el color definido en .boton-subir*/
   color: var(--azul-texto); 
   transition: transform 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por el botón: la flecha sube un poquito más */
+/*efecto al pasar el mouse por el boton, la flecha sube un poquito mas*/
 .boton-subir:hover .icono-flecha {
   transform: translateY(-3px);
 }
