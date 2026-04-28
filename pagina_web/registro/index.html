@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiikawa Login & Registro</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="registroForm">
+            <h3>Registro de Usuario</h3>
+            <input type="text" id="nombre" placeholder="Nombre de usuario">
+            <input type="email" id="correo" placeholder="Correo electrónico">
+            <input type="password" id="password" placeholder="Contraseña (mín. 8 caracteres)">
+            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
+            <button type="submit">Registrarse</button>
+            <p id="mensaje" class="feedback"></p>
+        </form>
+
+        <hr>
+
+        <form id="loginForm">
+            <h3>Iniciar Sesión</h3>
+            <input type="email" id="loginCorreo" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Contraseña">
+            <button type="submit">Ingresar</button>
+            <p id="mensajeLogin" class="feedback"></p>
+        </form>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
