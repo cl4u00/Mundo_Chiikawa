@@ -1,6 +1,6 @@
-// --- LÓGICA DE REGISTRO ---
+// --- 1. LÓGICA DE REGISTRO[cite: 1] ---
 document.getElementById("registroForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // [cite: 7]
+    e.preventDefault(); // Validación preventiva[cite: 1]
 
     const nombre = document.getElementById("nombre").value;
     const correo = document.getElementById("correo").value;
@@ -8,10 +8,10 @@ document.getElementById("registroForm").addEventListener("submit", function (e) 
     const confirmPass = document.getElementById("confirmPassword").value;
     const mensaje = document.getElementById("mensaje");
 
-    // Expresión regular para validar Email [cite: 13]
+    // Validar que el email tenga un formato válido (regex)[cite: 1]
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validaciones 
+    // Validación de campos vacíos
     if (nombre === "" || correo === "" || pass === "" || confirmPass === "") {
         mensaje.textContent = "Todos los campos son obligatorios.";
         mensaje.style.color = "red";
@@ -24,27 +24,28 @@ document.getElementById("registroForm").addEventListener("submit", function (e) 
         return;
     }
 
-    if (pass.length < 8) { // [cite: 14]
+    // Asegurar que la contraseña tenga al menos 8 caracteres[cite: 1]
+    if (pass.length < 8) {
         mensaje.textContent = "La contraseña debe tener al menos 8 caracteres.";
         mensaje.style.color = "red";
         return;
     }
 
-    if (pass !== confirmPass) { // [cite: 15]
+    // Verificar que ambas contraseñas ingresadas sean idénticas[cite: 1]
+    if (pass !== confirmPass) {
         mensaje.textContent = "Las contraseñas no coinciden.";
         mensaje.style.color = "red";
         return;
     }
 
-    // Si todo está correcto [cite: 19]
     mensaje.textContent = "¡Registro exitoso para " + nombre + "!";
     mensaje.style.color = "green";
     
-    // Limpiar campos 
-    e.target.reset();
+    e.target.reset(); // Limpia los campos
 });
 
-// --- LÓGICA DE LOGIN ---
+
+// --- 2. LÓGICA DE LOGIN[cite: 1] ---
 document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -52,17 +53,48 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     const pass = document.getElementById("loginPassword").value;
     const mensajeLogin = document.getElementById("mensajeLogin");
 
+    // Validar campos obligatorios[cite: 1]
     if (correo === "" || pass === "") {
         mensajeLogin.textContent = "Por favor, completa todos los campos.";
         mensajeLogin.style.color = "red";
     } else {
-        mensajeLogin.textContent = "Ingresando correctamente...";
-        mensajeLogin.style.color = "blue";
-
-        // Esperamos 1.5 segundos (1500 milisegundos) y luego redirigimos
-        setTimeout(function() {
-            // Cambia "pagina_chiikawa.html" por el nombre exacto de tu archivo HTML de Chiikawa
-            window.location.href = "pagina_web/chiikawa.html"; 
-        }, 1500);
+        // Mostrar un mensaje de éxito si los formatos son correctos[cite: 1]
+        mensajeLogin.textContent = "¡Inicio de sesión exitoso!";
+        mensajeLogin.style.color = "green";
     }
+});
+
+
+// --- 3. LÓGICA DE CONTACTO (Mejorada) ---
+const mensajeInput = document.getElementById("contactoMensaje");
+const contador = document.getElementById("contador");
+
+// Implementar un contador de caracteres[cite: 1]
+mensajeInput.addEventListener("input", function() {
+    contador.textContent = mensajeInput.value.length;
+});
+
+document.getElementById("contactoForm").addEventListener("submit", function (e) {
+    e.preventDefault(); //[cite: 1]
+
+    const nombre = document.getElementById("contactoNombre").value;
+    const telefono = document.getElementById("contactoTelefono").value;
+    const correo = document.getElementById("contactoCorreo").value;
+    // El asunto ahora no lo validaremos como obligatorio
+    const mensaje = document.getElementById("contactoMensaje").value;
+    const mensajeContacto = document.getElementById("mensajeContacto");
+
+    // Validamos que los campos importantes no estén vacíos
+    if (nombre === "" || telefono === "" || correo === "" || mensaje === "") {
+        mensajeContacto.textContent = "Por favor, ingresa tu nombre, contacto, correo y mensaje.";
+        mensajeContacto.style.color = "red";
+        return;
+    }
+
+    mensajeContacto.textContent = "Mensaje enviado correctamente. ¡Te contactaremos pronto!";
+    mensajeContacto.style.color = "green";
+
+    // Limpiar los campos automáticamente[cite: 1]
+    e.target.reset(); 
+    contador.textContent = "0"; 
 });

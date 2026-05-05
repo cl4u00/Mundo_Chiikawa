@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chiikawa Login & Registro</title>
+    <title>Formularios Chiikawa</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
+        
+        <!-- 1. Formulario de Registro[cite: 1] -->
         <form id="registroForm">
             <h3>Registro de Usuario</h3>
             <input type="text" id="nombre" placeholder="Nombre de usuario">
@@ -20,6 +22,7 @@
 
         <hr>
 
+        <!-- 2. Formulario de Login[cite: 1] -->
         <form id="loginForm">
             <h3>Iniciar Sesión</h3>
             <input type="email" id="loginCorreo" placeholder="Email">
@@ -27,6 +30,23 @@
             <button type="submit">Ingresar</button>
             <p id="mensajeLogin" class="feedback"></p>
         </form>
+
+        <hr>
+
+<!-- 3. Formulario de Contacto (Mejorado) -->
+        <form id="contactoForm">
+            <h3>Contacto</h3>
+            <input type="text" id="contactoNombre" placeholder="Nombre completo">
+            <input type="tel" id="contactoTelefono" placeholder="Número de contacto">
+            <input type="email" id="contactoCorreo" placeholder="Correo electrónico">
+            <input type="text" id="contactoAsunto" placeholder="Te gustaria mejorar algo de Mundo Chiikawa? (Opcional)">
+            
+            <textarea id="contactoMensaje" placeholder="Escribe tu mensaje aquí..." maxlength="200" rows="4"></textarea>
+            <p style="font-size: 12px; color: gray;">Caracteres: <span id="contador">0</span>/200</p>
+            <button type="submit">Enviar Mensaje</button>
+            <p id="mensajeContacto" class="feedback"></p>
+        </form>
+
     </div>
 
     <script src="app.js"></script>
