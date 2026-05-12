@@ -1,55 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <link rel="icon" type="image/x-icon" href="images/icon.webp">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularios Chiikawa</title>
+    <title>Iniciar sesion</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <img src="images/chiikawa_jugando.png" alt="Chiikawas jugando" class="chiikawa-fondo">
 
+    
     <div class="container">
+    <form id="registroForm">
+        <h3>Registro de Usuario</h3>
+        <input type="text" id="nombre" placeholder="Nombre de usuario">
+        <input type="email" id="correo" placeholder="Correo electrónico">
+        <input type="password" id="password" placeholder="Contraseña (mín. 8 caracteres)">
+        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
+        <button type="submit">Siguiente: Contacto</button>
+        <p id="mensaje" class="feedback"></p>
         
-        <!-- 1. Formulario de Registro[cite: 1] -->
-        <form id="registroForm">
-            <h3>Registro de Usuario</h3>
-            <input type="text" id="nombre" placeholder="Nombre de usuario">
-            <input type="email" id="correo" placeholder="Correo electrónico">
-            <input type="password" id="password" placeholder="Contraseña (mín. 8 caracteres)">
-            <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
-            <button type="submit">Registrarse</button>
-            <p id="mensaje" class="feedback"></p>
-        </form>
+        <p style="text-align: center; font-size: 14px; margin-top: 10px;">
+            ¿Ya tienes cuenta? 
+            <a href="#" onclick="irALogin(event)" style="color: #61A3C9; text-decoration: none; font-weight: bold;">Inicia sesión aquí</a>
+        </p>
+    </form>
 
-        <hr>
+    <form id="contactoForm" style="display: none;">
+        <h3>Contacto</h3>
+        <input type="text" id="contactoNombre" placeholder="Nombre completo">
+        <input type="tel" id="contactoTelefono" placeholder="Número de contacto">
+        <input type="email" id="contactoCorreo" placeholder="Correo electrónico">
+        <input type="text" id="contactoAsunto" placeholder="¿Mejorar algo de Mundo Chiikawa?">
+        <textarea id="contactoMensaje" placeholder="Escribe tu mensaje aquí..." maxlength="200" rows="4"></textarea>
+        <p style="font-size: 12px; color: gray;">Caracteres: <span id="contador">0</span>/200</p>
+        <button type="submit">Enviar y Continuar</button>
+        <p id="mensajeContacto" class="feedback"></p>
+    </form>
 
-        <!-- 2. Formulario de Login[cite: 1] -->
-        <form id="loginForm">
-            <h3>Iniciar Sesión</h3>
-            <input type="email" id="loginCorreo" placeholder="Email">
-            <input type="password" id="loginPassword" placeholder="Contraseña">
-            <button type="submit">Ingresar</button>
-            <p id="mensajeLogin" class="feedback"></p>
-        </form>
-
-        <hr>
-
-<!-- 3. Formulario de Contacto (Mejorado) -->
-        <form id="contactoForm">
-            <h3>Contacto</h3>
-            <input type="text" id="contactoNombre" placeholder="Nombre completo">
-            <input type="tel" id="contactoTelefono" placeholder="Número de contacto">
-            <input type="email" id="contactoCorreo" placeholder="Correo electrónico">
-            <input type="text" id="contactoAsunto" placeholder="Te gustaria mejorar algo de Mundo Chiikawa? (Opcional)">
-            
-            <textarea id="contactoMensaje" placeholder="Escribe tu mensaje aquí..." maxlength="200" rows="4"></textarea>
-            <p style="font-size: 12px; color: gray;">Caracteres: <span id="contador">0</span>/200</p>
-            <button type="submit">Enviar Mensaje</button>
-            <p id="mensajeContacto" class="feedback"></p>
-        </form>
-
-    </div>
+    <form id="loginForm" style="display: none;">
+        <h3>Iniciar Sesión</h3>
+        <input type="email" id="loginCorreo" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Contraseña">
+        <button type="submit">Ingresar</button>
+        <p id="mensajeLogin" class="feedback"></p>
+    </form>
+</div>
 
     <script src="app.js"></script>
 </body>

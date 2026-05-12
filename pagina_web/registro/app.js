@@ -8,6 +8,16 @@ document.getElementById("registroForm").addEventListener("submit", function (e) 
     const confirmPass = document.getElementById("confirmPassword").value;
     const mensaje = document.getElementById("mensaje");
 
+    // ... (después de tus validaciones de contraseña)
+    mensaje.textContent = "¡Registro exitoso! Pasando a contacto...";
+    mensaje.style.color = "green";
+    
+    // Saltamos al siguiente formulario después de 1 segundo
+    setTimeout(() => {
+        document.getElementById("registroForm").style.display = "none";
+        document.getElementById("contactoForm").style.display = "flex";
+    }, 1000);
+
     // Validar que el email tenga un formato válido (regex)[cite: 1]
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -82,6 +92,16 @@ mensajeInput.addEventListener("input", function() {
 document.getElementById("contactoForm").addEventListener("submit", function (e) {
     e.preventDefault(); //[cite: 1]
 
+    // ... (después de validar que los campos no estén vacíos)
+    mensajeContacto.textContent = "¡Mensaje enviado! Ya puedes iniciar sesión.";
+    mensajeContacto.style.color = "green";
+
+    // Saltamos al Login
+    setTimeout(() => {
+        document.getElementById("contactoForm").style.display = "none";
+        document.getElementById("loginForm").style.display = "flex";
+    }, 1500);
+
     const nombre = document.getElementById("contactoNombre").value;
     const telefono = document.getElementById("contactoTelefono").value;
     const correo = document.getElementById("contactoCorreo").value;
@@ -103,3 +123,11 @@ document.getElementById("contactoForm").addEventListener("submit", function (e) 
     e.target.reset(); 
     contador.textContent = "0"; 
 });
+
+
+function irALogin(event) {
+    event.preventDefault();
+    document.getElementById("registroForm").style.display = "none";
+    document.getElementById("contactoForm").style.display = "none";
+    document.getElementById("loginForm").style.display = "flex";
+}
