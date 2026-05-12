@@ -45,7 +45,7 @@ document.getElementById("registroForm").addEventListener("submit", function (e) 
 });
 
 
-// --- 2. LÓGICA DE LOGIN[cite: 1] ---
+// 2 LÓGICA DE LOGIN
 document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -53,14 +53,19 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
     const pass = document.getElementById("loginPassword").value;
     const mensajeLogin = document.getElementById("mensajeLogin");
 
-    // Validar campos obligatorios[cite: 1]
     if (correo === "" || pass === "") {
         mensajeLogin.textContent = "Por favor, completa todos los campos.";
         mensajeLogin.style.color = "red";
     } else {
-        // Mostrar un mensaje de éxito si los formatos son correctos[cite: 1]
-        mensajeLogin.textContent = "¡Inicio de sesión exitoso!";
+        // Simulamos éxito y guardamos un nombre genérico o el capturado en registro
+        localStorage.setItem("usuarioLogueado", "Kai"); // Aquí podrías usar el nombre del registro
+        mensajeLogin.textContent = "¡Inicio de sesión exitoso! Redirigiendo...";
         mensajeLogin.style.color = "green";
+
+        // Redirigir a la página principal tras 1.5 segundos
+        setTimeout(() => {
+            window.location.href = "../chiikawa.html";
+        }, 1500);
     }
 });
 

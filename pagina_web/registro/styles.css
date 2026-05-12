@@ -40,6 +40,10 @@ body {
     max-width: 400px;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.7);
+    /* ... todo tu código anterior del container ... */
+    position: relative;
+    z-index: 1;
+}
 }
 
 h3 {
@@ -121,4 +125,13 @@ hr {
     margin: 0;
     font-weight: bold;
     min-height: 20px;
+}
+
+.chiikawa-fondo {
+    position: fixed;
+    bottom: 5%;
+    left: 15%;
+    width: 350px; /* Cambia esto para hacerla más grande o pequeña */
+    z-index: 0;
+    pointer-events: none;
 }
