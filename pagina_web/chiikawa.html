@@ -49,9 +49,24 @@
         <li><a href="#introduccion">Historia</a></li>
         <li><a href="#recetas-saladas">Recetas Saladas</a></li>
         <li><a href="#postres">Postres</a></li>
-        <li><a href="#redes-footer">Conócenos</a></li> 
-    </ul>
+        <li><a href="#redes-footer">Contacto</a></li> </ul>
 </nav>
+
+<div class="user-menu-container">
+    <button class="hamburger-btn" id="hamburger-btn">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div id="auth-links">
+            <a href="registro/index.html">Iniciar Sesión</a>
+        </div>
+        <div id="user-info" style="display: none;">
+            <span class="welcome-text">Hola, <b id="user-name-display"></b></span>
+            <hr>
+            <a href="#" onclick="logout()">Cerrar Sesión</a>
+        </div>
+    </div>
+</div>
 
 <section class="carrusel-container">
   <div class="carrusel-pista">
@@ -470,20 +485,24 @@
   <script>
   window.onload = function() {
     const usuario = localStorage.getItem("usuarioLogueado");
-    const botonMenu = document.getElementById("menu-auth");
-    
-    if (usuario && botonMenu) {
-  botonMenu.innerHTML = `
-    <a href="#" onclick="logout()" class="btn-bienvenida">
-      Bienvenida ${usuario}
-    </a>`;
-}
-  };
+    const authLinks = document.getElementById("auth-links");
+    const userInfo = document.getElementById("user-info");
+    const userNameDisplay = document.getElementById("user-name-display");
 
-  function logout() {
+    if (usuario) {
+        authLinks.style.display = 'none';
+        userInfo.style.display = 'block';
+        userNameDisplay.textContent = usuario;
+    } else {
+        authLinks.style.display = 'flex';
+        userInfo.style.display = 'none';
+    }
+};
+
+function logout() {
     localStorage.removeItem("usuarioLogueado");
     location.reload();
-  }
+}
 
 
         const btn = document.getElementById('hamburger-btn');

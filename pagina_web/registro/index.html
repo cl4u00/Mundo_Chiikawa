@@ -8,43 +8,35 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <img src="images/chiikawa_jugando.png" alt="Chiikawas jugando" class="chiikawa-fondo">
+    <img src="images/chikawa_hachiware.gif" alt="Chiikawas jugando animado" class="chiikawa-fondo">
+    <img src="images/usagi.gif" alt="Usagi" class="usagi-derecha">
 
     
     <div class="container">
-    <form id="registroForm">
-        <h3>Registro de Usuario</h3>
-        <input type="text" id="nombre" placeholder="Nombre de usuario">
-        <input type="email" id="correo" placeholder="Correo electrónico">
-        <input type="password" id="password" placeholder="Contraseña (mín. 8 caracteres)">
-        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña">
-        <button type="submit">Siguiente: Contacto</button>
-        <p id="mensaje" class="feedback"></p>
-        
-        <p style="text-align: center; font-size: 14px; margin-top: 10px;">
-            ¿Ya tienes cuenta? 
-            <a href="#" onclick="irALogin(event)" style="color: #61A3C9; text-decoration: none; font-weight: bold;">Inicia sesión aquí</a>
+    <form id="loginForm">
+        <h3>Iniciar Sesión</h3>
+        <input type="email" id="loginCorreo" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+        <p id="mensajeLogin" class="feedback"></p>
+        <p style="text-align: center; font-size: 14px;">
+            ¿No tienes cuenta? 
+            <a href="#" onclick="mostrarRegistro(event)" style="color: #61A3C9; font-weight: bold;">Regístrate aquí</a>
         </p>
     </form>
 
-    <form id="contactoForm" style="display: none;">
-        <h3>Contacto</h3>
-        <input type="text" id="contactoNombre" placeholder="Nombre completo">
-        <input type="tel" id="contactoTelefono" placeholder="Número de contacto">
-        <input type="email" id="contactoCorreo" placeholder="Correo electrónico">
-        <input type="text" id="contactoAsunto" placeholder="¿Mejorar algo de Mundo Chiikawa?">
-        <textarea id="contactoMensaje" placeholder="Escribe tu mensaje aquí..." maxlength="200" rows="4"></textarea>
-        <p style="font-size: 12px; color: gray;">Caracteres: <span id="contador">0</span>/200</p>
-        <button type="submit">Enviar y Continuar</button>
-        <p id="mensajeContacto" class="feedback"></p>
-    </form>
-
-    <form id="loginForm" style="display: none;">
-        <h3>Iniciar Sesión</h3>
-        <input type="email" id="loginCorreo" placeholder="Email">
-        <input type="password" id="loginPassword" placeholder="Contraseña">
-        <button type="submit">Ingresar</button>
-        <p id="mensajeLogin" class="feedback"></p>
+    <form id="registroForm" style="display: none;">
+        <h3>Registro de Usuario</h3>
+        <input type="text" id="nombre" placeholder="Nombre de usuario" required>
+        <input type="email" id="correo" placeholder="Correo electrónico" required>
+        <input type="password" id="password" placeholder="Contraseña (mín. 8 caracteres)" required>
+        <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
+        <button type="submit">Crear Cuenta</button>
+        <p id="mensaje" class="feedback"></p>
+        <p style="text-align: center; font-size: 14px;">
+            ¿Ya tienes cuenta? 
+            <a href="#" onclick="mostrarLogin(event)" style="color: #61A3C9; font-weight: bold;">Inicia sesión</a>
+        </p>
     </form>
 </div>
 

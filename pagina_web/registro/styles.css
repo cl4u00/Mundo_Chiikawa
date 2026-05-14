@@ -127,11 +127,30 @@ hr {
     min-height: 20px;
 }
 
+
+/*-- Estilo para el fondo de Chiikawa --*/
+
 .chiikawa-fondo {
     position: fixed;
     bottom: 5%;
     left: 15%;
-    width: 350px; /* Cambia esto para hacerla más grande o pequeña */
+    width: 350px; 
     z-index: 0;
     pointer-events: none;
+}
+
+.usagi-derecha {
+    position: fixed;
+    bottom: 5%;
+    right: 15%;
+    width: 350px; 
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Agrega esto al final de tu archivo CSS para crear el movimiento */
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); } /* Sube 15 píxeles */
+    100% { transform: translateY(0px); }
 }
