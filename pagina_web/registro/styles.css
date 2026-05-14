@@ -154,3 +154,20 @@ hr {
     50% { transform: translateY(-15px); } /* Sube 15 píxeles */
     100% { transform: translateY(0px); }
 }
+
+
+.btn-volver-atras {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    text-decoration: none;
+    color: #61A3C9;
+    font-size: 13px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn-volver-atras:hover {
+    transform: translateX(-5px);
+    color: #FFB3C6;
+}

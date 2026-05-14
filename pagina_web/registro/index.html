@@ -13,6 +13,8 @@
 
     
     <div class="container">
+    <a href="../chiikawa.html" class="btn-volver-atras" title="Volver a la página principal">← Volver</a>
+
     <form id="loginForm">
         <h3>Iniciar Sesión</h3>
         <input type="email" id="loginCorreo" placeholder="Email" required>
@@ -20,8 +22,7 @@
         <button type="submit">Ingresar</button>
         <p id="mensajeLogin" class="feedback"></p>
         <p style="text-align: center; font-size: 14px;">
-            ¿No tienes cuenta? 
-            <a href="#" onclick="mostrarRegistro(event)" style="color: #61A3C9; font-weight: bold;">Regístrate aquí</a>
+            ¿No tienes cuenta? <a href="#" onclick="mostrarRegistro(event)" style="color: #61A3C9; font-weight: bold;">Regístrate aquí</a>
         </p>
     </form>
 
@@ -29,14 +30,22 @@
         <h3>Registro de Usuario</h3>
         <input type="text" id="nombre" placeholder="Nombre de usuario" required>
         <input type="email" id="correo" placeholder="Correo electrónico" required>
-        <input type="password" id="password" placeholder="Contraseña (mín. 8 caracteres)" required>
+        <input type="password" id="password" placeholder="Mín. 8 caracteres" required>
         <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
         <button type="submit">Crear Cuenta</button>
         <p id="mensaje" class="feedback"></p>
         <p style="text-align: center; font-size: 14px;">
-            ¿Ya tienes cuenta? 
-            <a href="#" onclick="mostrarLogin(event)" style="color: #61A3C9; font-weight: bold;">Inicia sesión</a>
+            ¿Ya tienes cuenta? <a href="#" onclick="mostrarLogin(event)" style="color: #61A3C9; font-weight: bold;">Inicia sesión</a>
         </p>
+    </form>
+
+    <form id="contactoForm" style="display: none;">
+        <h3>Contacto</h3>
+        <input type="text" placeholder="Tu nombre" required>
+        <input type="email" placeholder="Tu correo" required>
+        <textarea placeholder="¿En qué te ayudamos?" rows="4" required></textarea>
+        <button type="submit">Enviar Mensaje</button>
+        <p id="mensajeContacto" class="feedback"></p>
     </form>
 </div>
 
